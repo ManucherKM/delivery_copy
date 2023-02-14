@@ -1,21 +1,17 @@
-import { ReactNode, MouseEvent, FocusEvent } from "react";
+import { ReactNode, HTMLAttributes } from "react";
 import { EButtons } from "../enums/enums";
 
-interface IButton {
+interface IButton extends HTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
+  disabled?: boolean | undefined;
 }
 
-interface IChildButtons extends IButton {
-  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
-  onBlur?: (e: FocusEvent<HTMLButtonElement>) => void;
+interface IIndexButton extends IButton {
+  option: `${EButtons}`;
 }
 
-interface IIndexButton extends IChildButtons {
-  type: `${EButtons}`;
-}
+interface IAttractiveButton extends IButton {}
 
-interface IAttractiveButton extends IChildButtons {}
-
-interface IMediocreButton extends IChildButtons {}
+interface IMediocreButton extends IButton {}
 
 export type { IButton, IAttractiveButton, IMediocreButton, IIndexButton };

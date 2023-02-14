@@ -1,18 +1,17 @@
-import { Button } from "../shared";
+import { useState } from "react";
+import { Input } from "../shared";
 
-const test = () => {
+const Test = () => {
+  const [isRender, setIsRender] = useState<boolean>(false);
+
   return (
-    <>
-      <Button
-        onClick={() => {
-          console.log(123);
-        }}
-        type="mediocre"
-      >
-        123
-      </Button>
-    </>
+    <div className="darkMode">
+      <Input option="text" />
+      <Input option="checkbox" />
+      <Input option="date" />
+      <Input option="phone" />
+    </div>
   );
 };
 
-export default test;
+export default Test;

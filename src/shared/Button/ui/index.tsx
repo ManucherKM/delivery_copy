@@ -4,28 +4,16 @@ import { IIndexButton } from "../types/types";
 import AttractiveButton from "./AttractiveButton";
 import MediocreButton from "./MediocreButton";
 
-const Button: FC<IIndexButton> = ({
-  children,
-  type,
-  onBlur,
-  onClick,
-  ...props
-}) => {
-  const isAttractive = type === EButtons.attractive;
-  const isMediocre = type === EButtons.mediocre;
+const Button: FC<IIndexButton> = ({ children, option, ...props }) => {
+  const isAttractive = option === EButtons.attractive;
+  const isMediocre = option === EButtons.mediocre;
 
   return (
     <>
       {isAttractive && (
-        <AttractiveButton onBlur={onBlur} onClick={onClick} {...props}>
-          {children}
-        </AttractiveButton>
+        <AttractiveButton {...props}>{children}</AttractiveButton>
       )}
-      {isMediocre && (
-        <MediocreButton onBlur={onBlur} onClick={onClick} {...props}>
-          {children}
-        </MediocreButton>
-      )}
+      {isMediocre && <MediocreButton {...props}>{children}</MediocreButton>}
     </>
   );
 };

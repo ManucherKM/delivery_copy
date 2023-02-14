@@ -1,5 +1,6 @@
 .mediocre {
   border: none;
+  user-select: none;
 
   cursor: pointer;
   border-radius: 0.5rem;
@@ -14,5 +15,10 @@
   &:hover {
     transition: background-color 0.2s ease-out;
     background-color: $gray;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.6;
   }
 }

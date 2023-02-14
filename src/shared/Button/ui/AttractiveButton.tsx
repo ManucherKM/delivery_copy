@@ -1,29 +1,12 @@
-import { FC, MouseEvent, FocusEvent } from "react";
+import { FC } from "react";
 import { IAttractiveButton } from "../types/types";
 import classes from "../styles/Buttons.module.scss";
 
-const AttractiveButton: FC<IAttractiveButton> = ({
-  children,
-  onBlur = () => {},
-  onClick = () => {},
-  ...props
-}) => {
-  const styles = [classes.attractive].join();
-
-  function clickHandler(e: MouseEvent<HTMLButtonElement>) {
-    onClick(e);
-  }
-  function blurHandler(e: FocusEvent<HTMLButtonElement>) {
-    onBlur(e);
-  }
+const AttractiveButton: FC<IAttractiveButton> = ({ children, ...props }) => {
+  const styles = [classes.attractive].join(" ");
 
   return (
-    <button
-      onClick={clickHandler}
-      onBlur={blurHandler}
-      className={styles}
-      {...props}
-    >
+    <button className={styles} {...props}>
       {children}
     </button>
   );

@@ -1,29 +1,12 @@
-import { FC, MouseEvent, FocusEvent } from "react";
+import { FC } from "react";
 import { IMediocreButton } from "../types/types";
 import classes from "../styles/Buttons.module.scss";
 
-const MediocreButton: FC<IMediocreButton> = ({
-  children,
-  onBlur = () => {},
-  onClick = () => {},
-  ...props
-}) => {
-  const styles = [classes.mediocre].join();
-
-  function clickHandler(e: MouseEvent<HTMLButtonElement>) {
-    onClick(e);
-  }
-  function blurHandler(e: FocusEvent<HTMLButtonElement>) {
-    onBlur(e);
-  }
+const MediocreButton: FC<IMediocreButton> = ({ children, ...props }) => {
+  const styles = [classes.mediocre].join(" ");
 
   return (
-    <button
-      onClick={clickHandler}
-      onBlur={blurHandler}
-      className={styles}
-      {...props}
-    >
+    <button className={styles} {...props}>
       {children}
     </button>
   );
