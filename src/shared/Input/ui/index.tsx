@@ -7,7 +7,7 @@ import Phone from "./Phone";
 import Radio from "./Radio";
 import Text from "./Text";
 
-const Input: FC<IIndexInput> = ({ option }) => {
+const Input: FC<IIndexInput> = ({ option, value, ...props }) => {
   const isDate = option === EInput.date;
   const isText = option === EInput.text;
   const isPhone = option === EInput.phone;
@@ -16,11 +16,11 @@ const Input: FC<IIndexInput> = ({ option }) => {
 
   return (
     <>
-      {isDate && <Date />}
-      {isText && <Text />}
-      {isPhone && <Phone />}
-      {isCheckbox && <Checkbox  />}
-      {isRadio && <Radio />}
+      {isDate && <Date value={value} {...props} />}
+      {isText && <Text value={value} {...props} />}
+      {isPhone && <Phone value={value} {...props} />}
+      {isCheckbox && <Checkbox {...props} />}
+      {isRadio && <Radio {...props} />}
     </>
   );
 };

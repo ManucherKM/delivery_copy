@@ -1,15 +1,12 @@
-import { useState } from "react";
-import { Input } from "../shared";
+import { Button, Clue, Input } from "../shared";
 
 const Test = () => {
-  const [isRender, setIsRender] = useState<boolean>(false);
-
   return (
     <div className="darkMode">
-      <Input option="text" />
-      <Input option="checkbox" />
-      <Input option="date" />
-      <Input option="phone" />
+      <Input option="radio" />
+      <Clue>
+        <Button option="attractive">123</Button>
+      </Clue>
     </div>
   );
 };

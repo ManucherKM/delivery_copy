@@ -1,0 +1,42 @@
+.clue {
+  border-radius: 1rem;
+  background-color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 16px $black;
+  box-sizing: border-box;
+  max-width: 400px;
+  max-height: 400px;
+  padding: 4px;
+}
+
+.start {
+  animation: start normal 0.2s linear;
+}
+
+@keyframes start {
+  from {
+    transform: translateY(20%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.end {
+  animation: end infinite 0.2s linear;
+}
+
+@keyframes end {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(20%);
+    opacity: 0;
+  }
+}
